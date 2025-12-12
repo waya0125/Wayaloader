@@ -11,8 +11,8 @@ android {
         applicationId = "com.waya0125.wayaloader"
         minSdk = 28 // Android 9.0 (Pie)
         targetSdk = 34
-        versionCode = 20251212
-        versionName = "2025.12.12"
+        versionCode = System.getProperty("versionCode")?.toIntOrNull() ?: 20251212
+        versionName = System.getProperty("versionName") ?: "2025.12.12"
         
         ndk {
             abiFilters.add("arm64-v8a")

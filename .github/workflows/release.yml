@@ -1,0 +1,54 @@
+name: Build and Release APK
+
+on:
+  push:
+    branches: [ "master" ]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: true
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: 'gradle'
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    - name: Generate Version
+      id: version
+      run: |
+        # Generate version based on date/time
+        VERSION_NAME=$(date +'%Y.%m.%d.%H%M')
+        VERSION_CODE=$(date +'%Y%m%d%H')
+        echo "VERSION_NAME=$VERSION_NAME" >> $GITHUB_OUTPUT
+        echo "VERSION_CODE=$VERSION_CODE" >> $GITHUB_OUTPUT
+        echo "Generated Version: $VERSION_NAME ($VERSION_CODE)"
+
+    - name: Build APK with Version
+      run: ./gradlew assembleDebug -DversionCode=${{ steps.version.outputs.VERSION_CODE }} -DversionName=${{ steps.version.outputs.VERSION_NAME }}
+
+    - name: Rename APK
+      run: |
+        mv app/build/outputs/apk/debug/app-debug.apk Wayaloader_v${{ steps.version.outputs.VERSION_NAME }}.apk
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: v${{ steps.version.outputs.VERSION_NAME }}
+        name: Wayaloader v${{ steps.version.outputs.VERSION_NAME }}
+        files: Wayaloader_v${{ steps.version.outputs.VERSION_NAME }}.apk
+        draft: false
+        prerelease: false
+        generate_release_notes: true

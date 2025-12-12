@@ -1,13 +1,11 @@
 name: Android CI
 
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
-  workflow_dispatch: # Manual trigger
+    branches: [ "master" ]
+  workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *' # Daily build at midnight UTC (to check for new yt-dlp versions if needed)
+    - cron: '0 0 * * *'
 
 jobs:
   build:
