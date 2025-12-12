@@ -1,6 +1,7 @@
 # Wayaloader
 
-**Wayaloader** is a powerful YouTube and SoundCloud downloader for Android, powered by [yt-dlp](https://github.com/yt-dlp/yt-dlp).
+**Wayaloader** is a powerful YouTube and SoundCloud downloader for Android, powered by [yt-dlp](https://github.com/yt-dlp/yt-dlp).  
+Powered by Gemini 3 Pro.
 
 ## Features
 
