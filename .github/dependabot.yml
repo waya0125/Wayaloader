@@ -1,0 +1,19 @@
+version: 2
+updates:
+  # Gradle (Kotlin DSL) dependencies
+  - package-ecosystem: "gradle"
+    directory: "/app" # Monitor app/build.gradle.kts
+    schedule:
+      interval: "weekly" # Check weekly for updates
+    pull-request-branch-name:
+      separator: "-"
+    # Ignore updates for specific libraries (optional)
+    # ignore:
+    #   - dependency-name: "com.github.ya-username.youtubedl-android:library"
+    #   - dependency-name: "com.github.ya-username.youtubedl-android:ffmpeg"
+
+  # GitHub Actions workflows
+  - package-ecosystem: "github-actions"
+    directory: "/" # Monitor .github/workflows for action updates
+    schedule:
+      interval: "weekly"

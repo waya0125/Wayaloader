@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Wayaloader</string>
+    <string name="url_hint">Paste YouTube/SoundCloud URL</string>
+    <string name="btn_download">Download</string>
+    <string name="btn_update_ytdlp">Update yt-dlp</string>
+    <string name="msg_init">Initializing yt-dlp...</string>
+    <string name="msg_downloading">Downloading...</string>
+    <string name="msg_completed">Download Completed!</string>
+    <string name="msg_failed">Download Failed</string>
+    <string name="label_format">Format</string>
+    <string name="label_logs">Logs</string>
+    <string name="msg_updating">Updating yt-dlp...</string>
+    <string name="msg_update_complete">yt-dlp updated!</string>
+</resources>

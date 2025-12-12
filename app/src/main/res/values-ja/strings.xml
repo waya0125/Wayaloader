@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Wayaloader</string>
+    <string name="url_hint">動画/音声のURLを貼り付け</string>
+    <string name="btn_download">ダウンロード</string>
+    <string name="btn_update_ytdlp">yt-dlpを更新</string>
+    <string name="msg_init">yt-dlpを初期化中...</string>
+    <string name="msg_downloading">ダウンロード中...</string>
+    <string name="msg_completed">ダウンロード完了！</string>
+    <string name="msg_failed">ダウンロード失敗</string>
+    <string name="label_format">保存形式</string>
+    <string name="label_logs">ログ</string>
+    <string name="msg_updating">yt-dlpを更新中...</string>
+    <string name="msg_update_complete">yt-dlpを更新しました！</string>
+</resources>
